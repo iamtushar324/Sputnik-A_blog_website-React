@@ -1,0 +1,44 @@
+:root {
+    --dc: #00887A;
+    --lc: #FFCCBC;
+    --llllc: #FFFFFF;
+    --lllc: #D3E3FC;
+    --llc: #4C6085
+}
+
+nav {
+    color: var(--llllc)
+}
+
+
+
+.nav-con {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--llc);
+}
+
+li {
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    list-style: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-bottom: solid 3px var(--llc);
+
+}
+
+li:hover {
+    border-bottom: solid 3px var(--lllc);
+    color: var(--lllc)
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
