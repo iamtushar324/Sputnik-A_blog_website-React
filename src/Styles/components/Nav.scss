@@ -1,44 +1,56 @@
-:root {
-    --dc: #00887A;
-    --lc: #FFCCBC;
-    --llllc: #FFFFFF;
-    --lllc: #D3E3FC;
-    --llc: #4C6085
-}
+@import "../base/settings";
 
 nav {
-    color: var(--llllc)
+    color: $llllc;
+
+    img {
+        height: 45px;
+    }
 }
 
-
+.logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-width: 200px;
+    width: 20%;
+    font-size: 30px;
+}
 
 .nav-con {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
-    background-color: var(--llc);
+    background-color: $llc;
 }
 
 li {
-    padding: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 15px 30px;
     list-style: none;
     box-sizing: border-box;
     cursor: pointer;
-    border-bottom: solid 3px var(--llc);
-
+    border-bottom: solid 3px $llc;
 }
 
 li:hover {
-    border-bottom: solid 3px var(--lllc);
-    color: var(--lllc)
+    border-bottom: solid 3px white;
+    color: white;
 }
 
 .links {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: center;
 
+    img {
+        height: 30px;
+        margin-right: 20px;
+    }
+
+    img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 }

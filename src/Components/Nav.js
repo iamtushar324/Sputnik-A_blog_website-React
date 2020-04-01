@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import '../Styles/components/Nav.scss';
-import logo from '../img/logo.png'
-
-
+import logo from '../img/svg/logo.png';
+import plus from '../img/svg/add.svg';
 
 
 
@@ -15,8 +13,15 @@ class Nav extends Component {
         return (
             <nav>
                 <div className="nav-con">
-                    <div className="logo"><img src={logo} style={logostyle} ></img></div>
+                    <div className="logo">
+
+                        <img src={logo} alt="logo" ></img>
+                        <span>SPUTNIK</span>
+                    </div>
+
                     <div className="links">
+
+                        <img src={plus} alt="+"></img>
 
                         <li>
                             Home
@@ -30,15 +35,11 @@ class Nav extends Component {
                 </div>
 
 
-            </nav>
+            </nav >
         )
     }
 }
 
 
-
-const logostyle = {
-    height: "10px"
-}
 
 export default Nav;

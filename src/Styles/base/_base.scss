@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  background-color: rgb(204, 204, 204);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.loader {
+  height: 50px;
+  width: 50px;
+
+  position: fixed;
+  left: 48%;
+  top: 45%;
+  transform: translateX(-50%);
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+  animation-timing-function: linear;
+}
+.loader:hover {
+  transform: rotateZ(80deg);
+}
+
+@keyframes loading {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
