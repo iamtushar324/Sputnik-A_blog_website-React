@@ -65,26 +65,7 @@ class AuthorCard extends Component {
 
 }
 
-class Comment extends Component {
-    render() {
-        return (
-            <div className="comment">
-                <AuthorCard />
-                <div className="cmnt-body">
-                    <p>This is a very bad idea</p>
-                </div>
 
-
-
-            </div>
-
-
-
-
-
-        )
-    }
-}
 
 
 

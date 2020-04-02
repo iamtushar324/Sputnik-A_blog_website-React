@@ -3,10 +3,30 @@ import logo from '../img/svg/logo.png';
 import plus from '../img/svg/add.svg';
 
 
-
-
 class Nav extends Component {
 
+
+    navToCrArt() {
+        this.props.navTo("CrArt");
+    }
+
+    navToHome() {
+        this.props.navTo("home")
+    }
+
+    navToProfile() {
+        this.props.navTo('profile')
+    }
+
+    // user define function ^^^^^^^^^^^^^^
+
+
+    constructor(props) {
+        super(props)
+        this.navToCrArt = this.navToCrArt.bind(this)
+        this.navToProfile = this.navToProfile.bind(this)
+        this.navToHome = this.navToHome.bind(this)
+    }
 
     render() {
 
@@ -21,15 +41,19 @@ class Nav extends Component {
 
                     <div className="links">
 
-                        <img src={plus} alt="+"></img>
+                        <img onClick={this.navToCrArt} src={plus} alt="+"></img>
 
-                        <li>
+                        <li onClick={this.navToHome}>
                             Home
                         </li>
-                        <li>
+                        {this.props.islogin ? <li onClick={this.navToProfile}>
                             Profile
-                        </li>
+                        </li> : <li className="logReg_btn" onClick={this.props.loginbtn}>Login/ Register</li>}
 
+
+                        {
+                            this.props.islogin ? <div className="userPic" style={{ backgroundImage: `url(${this.props.userPic})` }}></div> : null
+                        }
 
                     </div>
                 </div>

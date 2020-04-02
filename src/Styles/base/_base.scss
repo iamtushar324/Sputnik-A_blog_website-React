@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(204, 204, 204);
+  background-color: $llbc;
 }
 
 code {
@@ -33,4 +33,9 @@ code {
   to {
     transform: rotateZ(360deg);
   }
+}
+
+.loginModal {
+  position: absolute;
+  z-index: 10;
 }
