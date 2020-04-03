@@ -3,6 +3,8 @@ import Nav from '../Components/Nav';
 import LoginReg from '../Components/LoginReg';
 import defaultUserPro from '../img/svg/account.svg'
 import Home from './Home'
+import CArt from './CArt'
+import Profile from './Profile'
 
 
 
@@ -69,9 +71,6 @@ class App extends React.Component {
         })
             .then(res => res.json())
             .then(parJson => {
-
-
-
                 if (parJson.token) {
                     this.setState(() => {
                         return {
@@ -80,8 +79,15 @@ class App extends React.Component {
                             islogin: true
                         }
                     })
+
                 }
 
+                else if (parJson.error) {
+                    alert(parJson.error.body)
+                }
+
+            }).catch((error) => {
+                alert(error)
             })
 
     }
@@ -95,16 +101,46 @@ class App extends React.Component {
         })
     }
 
+    islogin() {
+
+        fetch('/api/user/islogin', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+
+        })
+            .then(res => res.json())
+            .then(parJson => {
+
+                if (parJson.token) {
+                    this.setState(() => {
+                        return {
+                            userDetails: parJson,
+                            loginModal: false,
+                            islogin: true
+                        }
+                    })
+                }
+
+
+
+            })
+
+    }
+
     // User defined functions -----------------------
 
 
     constructor(props) {
+
         super(props)
+
+        this.islogin()
         this.dologin = this.dologin.bind(this)
         this.loginmenu = this.loginmenu.bind(this)
         this.remLogReg = this.remLogReg.bind(this)
         this.regUser = this.regUser.bind(this)
         this.navTo = this.navTo.bind(this)
+        this.islogin = this.islogin.bind(this)
 
 
         this.state = {
@@ -118,6 +154,8 @@ class App extends React.Component {
 
         }
 
+
+
     }
 
 
@@ -125,15 +163,26 @@ class App extends React.Component {
 
     render() {
 
+
         let page;
         if (this.state.whichPage === "home") {
             page = (<Home />)
         }
         if (this.state.whichPage === "profile") {
-            page = (<div>Pro</div>)
+            page = (
+
+                <Profile
+                    pic={this.state.userDetails.image}
+                    user_name={this.state.userDetails.username}
+                    user_email={this.state.userDetails.email}
+                    article_num={10}
+                    following_num={10}
+                    follower_num={10}
+
+                />)
         }
         if (this.state.whichPage === "CrArt") {
-            page = (<div>todo create articles</div>)
+            page = (<CArt navTo={this.navTo} />)
         }
 
 
@@ -151,6 +200,7 @@ class App extends React.Component {
 
                             dologin={this.dologin}
                             remLogReg={this.remLogReg}
+                            regUser={this.regUser}
                         />
                         : null
                 }

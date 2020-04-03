@@ -1,0 +1,30 @@
+@import "../base/settings";
+
+#body {
+    height: 200px;
+    width: 80%;
+    border-radius: 27px;
+    padding: 8px 15px;
+}
+
+.CArt_con {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 45vw;
+    background-color: $lbc;
+    padding: 30px;
+    border: solid 1px rgb(161, 161, 161);
+    box-shadow: 2px 3px 5px rgb(75, 75, 75);
+    border-radius: 30px;
+    transition: transform 0.2s;
+    animation-name: p;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    cursor: pointer;
+
+    input {
+        margin: 10px;
+    }
+}

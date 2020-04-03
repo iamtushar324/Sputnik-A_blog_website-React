@@ -23,8 +23,6 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props)
-
-
     this.state = {
       articles: [],
       isloading: true,
@@ -33,7 +31,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+
     this.getarticle()
+
+
   }
 
   render() {

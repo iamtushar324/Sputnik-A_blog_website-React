@@ -14,7 +14,8 @@ class LoginReg extends Component {
         let email = document.getElementById('email').value
         let pass = document.getElementById('pass').value
         let name = document.getElementById('name').value
-        this.props.remLogReg(name, email, pass)
+        this.props.regUser(name, email, pass)
+        this.setlog()
 
 
 
