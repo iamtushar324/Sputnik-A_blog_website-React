@@ -49,48 +49,19 @@ class App extends React.Component {
                             loginModal: false,
                             islogin: true
                         }
+
                     })
+                }
+
+                else if (parJson.errors) {
+                    alert(parJson.errors.body)
                 }
 
             })
 
     }
 
-    regUser(username, email, pass) {
 
-        fetch('/api/users', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "user": {
-                    "username": username,
-                    "email": email,
-                    "password": pass
-                }
-            })
-        })
-            .then(res => res.json())
-            .then(parJson => {
-                if (parJson.token) {
-                    this.setState(() => {
-                        return {
-                            userDetails: parJson,
-                            loginModal: false,
-                            islogin: true
-                        }
-                    })
-
-                }
-
-                else if (parJson.error) {
-                    alert(parJson.error.body)
-                }
-
-            }).catch((error) => {
-                alert(error)
-            })
-
-    }
 
     navTo(page) {
 
@@ -138,7 +109,6 @@ class App extends React.Component {
         this.dologin = this.dologin.bind(this)
         this.loginmenu = this.loginmenu.bind(this)
         this.remLogReg = this.remLogReg.bind(this)
-        this.regUser = this.regUser.bind(this)
         this.navTo = this.navTo.bind(this)
         this.islogin = this.islogin.bind(this)
 
@@ -175,8 +145,8 @@ class App extends React.Component {
                     pic={this.state.userDetails.image}
                     user_name={this.state.userDetails.username}
                     user_email={this.state.userDetails.email}
-                    article_num={10}
-                    following_num={10}
+                    article_num={this.state.userDetails.favArt.length - 1}
+                    following_num={this.state.userDetails.following.length - 1}
                     follower_num={10}
 
                 />)
@@ -200,7 +170,6 @@ class App extends React.Component {
 
                             dologin={this.dologin}
                             remLogReg={this.remLogReg}
-                            regUser={this.regUser}
                         />
                         : null
                 }

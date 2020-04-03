@@ -52,6 +52,7 @@ class Home extends React.Component {
               text={arr.body}
               pic={arr.author.image}
               name={arr.author.username}
+
             />
 
           })

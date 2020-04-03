@@ -66,3 +66,23 @@
     position: relative;
     top: -144px;
 }
+
+@media screen and (max-width: 749px) {
+    .back_gradient {
+        width: 90%;
+    }
+
+    .main_con {
+        width: 90%;
+        flex-direction: column;
+        height: 400px;
+    }
+
+    .user_info {
+        width: 100%;
+    }
+    .acc_info {
+        width: 100%;
+        margin-top: -80px;
+    }
+}

@@ -14,8 +14,53 @@ class LoginReg extends Component {
         let email = document.getElementById('email').value
         let pass = document.getElementById('pass').value
         let name = document.getElementById('name').value
-        this.props.regUser(name, email, pass)
-        this.setlog()
+
+        if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+            alert("Invalid email ")
+            return
+        }
+
+        if (pass.length < 8) {
+            alert("Password should be greater than 8 letters")
+            return
+        }
+
+
+        fetch('/api/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "user": {
+                    "username": name,
+                    "email": email,
+                    "password": pass
+                }
+            })
+        })
+            .then(res => res.json())
+            .then(parJson => {
+
+                if (parJson.user.token) {
+                    this.setlog()
+                    alert("Registration Complete Now log in ")
+
+
+
+
+
+                }
+                else if (parJson.errors) {
+                    alert(parJson.errors.body)
+
+                }
+
+            }).catch((error) => {
+                alert(error)
+            })
+
+
+
+
 
 
 

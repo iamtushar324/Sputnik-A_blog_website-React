@@ -25,7 +25,7 @@ class Profile extends Component {
                     </div>
                     <div className="acc_info" >
 
-                        <div> <h1 className="pro_num">{this.props.article_num}</h1> <h3>Articles</h3>   </div>
+                        <div> <h1 className="pro_num">{this.props.article_num}</h1> <h3>Fav. Articles</h3>   </div>
                         <div> <h1 className="pro_num">{this.props.follower_num}</h1> <h3>Followers</h3>  </div>
                         <div> <h1 className="pro_num">{this.props.following_num}</h1>  <h3>Following</h3> </div>
 

@@ -77,6 +77,7 @@ class Nav extends Component {
             links = {
                 transform: " translate(440px, -250px)",
                 transitionDelay: "0.1s"
+                , display: "block"
 
             }
 

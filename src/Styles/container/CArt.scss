@@ -27,4 +27,19 @@
     input {
         margin: 10px;
     }
+
+    button {
+        background-color: $llc;
+        color: $lbc;
+    }
+
+    h1 {
+        color: $llc;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .CArt_con {
+        width: 80%;
+    }
 }

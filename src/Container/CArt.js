@@ -10,6 +10,15 @@ class CArt extends Component {
         let body = document.getElementById("body").value
         let taglist = document.getElementById("tags").value.split(" ")
 
+        if (title.length < 2) {
+            alert("Title must be longer than 2 letters")
+            return
+        }
+        if (body.split(" ").length < 10) {
+            alert("Body must be longer than 10 Words")
+            return
+        }
+
 
         fetch('/api/articles', {
             method: 'POST',
