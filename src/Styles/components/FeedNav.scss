@@ -2,7 +2,7 @@
 
 .bar {
     background-color: $lbc;
-    width: 48vw;
+    width: 45vw;
     margin: 20px auto;
     display: flex;
     justify-content: space-between;
@@ -32,4 +32,10 @@
 #first {
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
+}
+
+@media screen and (max-width: 617px) {
+    .bar {
+        width: 80vw;
+    }
 }

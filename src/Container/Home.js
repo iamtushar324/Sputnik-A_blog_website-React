@@ -46,7 +46,7 @@ class Home extends React.Component {
 
         {
           this.state.isloading ? <Loading /> : this.state.articles.map((arr) => {
-            return <Article
+            return <Article key={arr.slug}
               title={arr.title}
               text={arr.body}
               pic={arr.author.image}

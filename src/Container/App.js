@@ -5,6 +5,7 @@ import defaultUserPro from '../img/svg/account.svg'
 import Home from './Home'
 
 
+
 class App extends React.Component {
 
     // User defined functions    
@@ -69,7 +70,7 @@ class App extends React.Component {
             .then(res => res.json())
             .then(parJson => {
 
-                console.log(parJson)
+
 
                 if (parJson.token) {
                     this.setState(() => {
@@ -119,6 +120,9 @@ class App extends React.Component {
 
     }
 
+
+
+
     render() {
 
         let page;
@@ -133,18 +137,20 @@ class App extends React.Component {
         }
 
 
-        console.log(page)
 
         return (
 
             <div>
 
+
+
                 {
                     this.state.loginModal ?
 
                         < LoginReg
+
                             dologin={this.dologin}
-                            remLogReg={this.regUser}
+                            remLogReg={this.remLogReg}
                         />
                         : null
                 }
@@ -167,6 +173,7 @@ class App extends React.Component {
 
 
     }
+
 
 }
 
