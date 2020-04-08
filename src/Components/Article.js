@@ -7,17 +7,22 @@ import React, { Component } from 'react';
 
 class Article extends Component {
 
+    click() {
+        this.props.onArtClick(this.props.slug)
+    }
 
 
 
-
-
+    constructor(props) {
+        super(props)
+        this.click = this.click.bind(this)
+    }
 
 
     render() {
 
         return (
-            <div className="article">
+            <div className="article" onClick={this.click}>
                 <AuthorCard
                     pic={this.props.pic}
                     name={this.props.name}

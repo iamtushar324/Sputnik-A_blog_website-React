@@ -1,0 +1,20 @@
+@import "../base/settings";
+
+#comment_text {
+    width: 80%;
+    margin: 10px 10px;
+}
+
+#comnt_btn {
+    width: 25%;
+    margin-left: 10px;
+}
+
+#comnt_box {
+    text-align: center;
+}
+@media screen and (max-width: 577px) {
+    #comnt_btn {
+        width: 30%;
+    }
+}

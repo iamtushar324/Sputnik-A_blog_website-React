@@ -5,12 +5,28 @@ import defaultUserPro from '../img/svg/account.svg'
 import Home from './Home'
 import CArt from './CArt'
 import Profile from './Profile'
+// import Article from '../Components/Article';
+import VArt from './VArt'
 
 
 
 class App extends React.Component {
 
-    // User defined functions    
+    // User defined functions    \
+
+
+    navToArt(slug) {
+
+        this.setState(() => {
+            return {
+
+                slug: slug,
+                whichPage: "Art"
+            }
+        })
+
+
+    }
 
 
     loginmenu() {
@@ -65,6 +81,10 @@ class App extends React.Component {
 
     navTo(page) {
 
+        if (page === "CrArt") {
+            this.loginmenu()
+        }
+
         this.setState(() => {
             return {
                 whichPage: page
@@ -111,6 +131,7 @@ class App extends React.Component {
         this.remLogReg = this.remLogReg.bind(this)
         this.navTo = this.navTo.bind(this)
         this.islogin = this.islogin.bind(this)
+        this.navToArt = this.navToArt.bind(this)
 
 
         this.state = {
@@ -120,7 +141,8 @@ class App extends React.Component {
             userDetails: {},
             islogin: false,
             loginModal: false,
-            whichPage: "home"
+            whichPage: "home",
+            slug: false
 
         }
 
@@ -136,7 +158,7 @@ class App extends React.Component {
 
         let page;
         if (this.state.whichPage === "home") {
-            page = (<Home />)
+            page = (<Home navToArt={this.navToArt} />)
         }
         if (this.state.whichPage === "profile") {
             page = (
@@ -152,7 +174,23 @@ class App extends React.Component {
                 />)
         }
         if (this.state.whichPage === "CrArt") {
+
+
+
             page = (<CArt navTo={this.navTo} />)
+
+
+
+        }
+
+        if (this.state.whichPage === "Art") {
+
+            page = (<VArt
+                slug={this.state.slug}
+
+
+            />
+            )
         }
 
 
