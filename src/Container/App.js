@@ -81,7 +81,7 @@ class App extends React.Component {
 
     navTo(page) {
 
-        if (page === "CrArt") {
+        if (page === "CrArt" && this.state.islogin === false) {
             this.loginmenu()
         }
 
